@@ -1,0 +1,73 @@
+{
+  "project": {
+    "version": "1.0.0-beta.22-1",
+    "name": "webreport-5asec"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "prefix": "app",
+      "mobile": false,
+      "styles": [
+        "./assets/css/materialize.min.css",
+        "./assets/css/font-awesome.min.css",
+        "./assets/css/pikaday.min.css",
+        "./assets/css/select2-materialize.css",
+        "styles.css"
+      ],
+      "scripts": [
+        "./assets/js/jquery.min.js",
+        "./assets/js/materialize.min.js",
+        "./assets/js/FileSaver.min.js",
+        "./assets/js/moment.min.js",
+        "./assets/js/accounting.min.js",
+        "./assets/js/pikaday.min.js",
+        "./assets/js/pikaday-jquery.min.js",
+        "./assets/js/sorttable.js",
+        "./assets/js/select2.full.min.js"
+      ],
+      "environments": {
+        "source": "environments/environment.ts",
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "addons": [],
+  "packages": [],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "prefixInterfaces": false,
+    "inline": {
+      "style": false,
+      "template": false
+    },
+    "spec": {
+      "class": false,
+      "component": true,
+      "directive": true,
+      "module": false,
+      "pipe": true,
+      "service": true
+    }
+  }
+}
