@@ -141,9 +141,10 @@ export class ReceiveOrderPageComponent implements OnInit {
 
       this.mySub = this.reportingService.getReport(reportParam, 'listROActivity').subscribe(() => '',
         (err) => {
-          this.errorMessage = 'An error occured : ' + err;
+          this.errorMessage = 'Something\'s not good happened, redirecting to login';
           Materialize.toast(this.errorMessage, 2000, 'red');
           this.isDisabledForProcess = false;
+          this.logout();
         },
         () => {
           this.isDisabledForProcess = false;

@@ -123,9 +123,10 @@ export class DailyLoadingPageComponent implements OnInit, AfterViewInit {
 
       this.mySub = this.reportingService.getReport(reportParam, 'dailyLoading').subscribe(() => '',
         (err) => {
-          this.errorMessage = 'An error occured : ' + err;
-          Materialize.toast(this.errorMessage, 2000,'red');
+          this.errorMessage = 'Something\'s not good happened, redirecting to login';
+          Materialize.toast(this.errorMessage, 2000, 'red');
           this.isDisabledForProcess = false;
+          this.logout();
         },
         () => {
           this.isDisabledForProcess = false;

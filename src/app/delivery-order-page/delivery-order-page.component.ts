@@ -144,9 +144,10 @@ export class DeliveryOrderPageComponent implements OnInit, AfterViewInit {
 
       this.mySub = this.reportingService.getReport(reportParam, 'listDOActivity').subscribe(() => '',
         (err) => {
-          this.errorMessage = 'An error occured : ' + err;
+          this.errorMessage = 'Something\'s not good happened, redirecting to login';
           Materialize.toast(this.errorMessage, 2000, 'red');
           this.isDisabledForProcess = false;
+          this.logout();
         },
         () => {
           this.isDisabledForProcess = false;

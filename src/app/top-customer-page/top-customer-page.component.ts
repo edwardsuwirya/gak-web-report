@@ -10,6 +10,7 @@ import {Article} from "../shared/model/article";
 import {Customer} from "../shared/model/customer";
 import {CustomerService} from "../shared/service/customer.service";
 import {ResponsibilityCenterService} from "../shared/service/responsibility-center.service";
+import {Router} from "@angular/router";
 
 declare let $: any;
 declare let Materialize: any;
@@ -163,9 +164,10 @@ export class TopCustomerPageComponent implements OnInit {
 
       this.mySub = this.reportingService.getReport(reportParam, 'topCustomer').subscribe(() => '',
         (err) => {
-          this.errorMessage = 'An error occured : ' + err;
+          this.errorMessage = 'Something\'s not good happened, redirecting to login';
           Materialize.toast(this.errorMessage, 2000, 'red');
           this.isDisabledForProcess = false;
+          this.logout();
         },
         () => {
           this.isDisabledForProcess = false;

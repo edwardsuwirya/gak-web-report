@@ -17,7 +17,7 @@ declare let Materialize: any;
 
 @Component({
   selector: 'app-customer-transaction-history-page',
-  providers: [AuthenticationService, AppTokenService, ReportingService,CustomerService,ResponsibilityCenterService],
+  providers: [AuthenticationService, AppTokenService, ReportingService, CustomerService, ResponsibilityCenterService],
   templateUrl: './customer-transaction-history-page.component.html',
   styleUrls: ['./customer-transaction-history-page.component.css']
 })
@@ -60,7 +60,7 @@ export class CustomerTransactionHistoryPageComponent implements OnInit {
     this.authService.checkCredentials();
   }
 
-  openPopUp(id){
+  openPopUp(id) {
     $(id).modal('open');
   }
 
@@ -147,9 +147,10 @@ export class CustomerTransactionHistoryPageComponent implements OnInit {
       if (reportType === 0) {
         this.mySub = this.reportingService.getReport(reportParam, 'customerTransactionHistory').subscribe(() => '',
           (err) => {
-            this.errorMessage = 'An error occured : ' + err;
+            this.errorMessage = 'Something\'s not good happened, redirecting to login';
             Materialize.toast(this.errorMessage, 2000, 'red');
             this.isDisabledForProcess = false;
+            this.logout();
           },
           () => {
             this.isDisabledForProcess = false;
@@ -159,9 +160,10 @@ export class CustomerTransactionHistoryPageComponent implements OnInit {
             this.resp = <CustomerTransactionHistory[]>resp;
           },
           (err) => {
-            this.errorMessage = 'An error occured : ' + err;
+            this.errorMessage = 'Something\'s not good happened, redirecting to login';
             Materialize.toast(this.errorMessage, 2000, 'red');
             this.isDisabledForProcess = false;
+            this.logout();
           },
           () => {
             this.isDisabledForProcess = false;
